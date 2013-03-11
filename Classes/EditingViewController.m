@@ -55,10 +55,12 @@
         
         self.textField.hidden = NO;
         self.datePicker.hidden = YES;
-        self.textField.text = [self.editedObject valueForKey:self.editedFieldKey];
         self.textField.placeholder = self.title;
         if (self.isNumber) {
             self.textField.keyboardType = UIKeyboardTypeDecimalPad;
+            self.textField.text = [[self.editedObject valueForKey:self.editedFieldKey] stringValue];
+        } else {
+            self.textField.text = [self.editedObject valueForKey:self.editedFieldKey];
         }
         [self.textField becomeFirstResponder];
     }
